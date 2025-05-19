@@ -10,6 +10,12 @@ const shared = {
 };
 
 export default defineConfig({
+  server: {
+    port: 4020,
+  },
+  plugins: [
+    pluginReact(),
+  ],
   lib: [
     {
       ...shared,
@@ -32,23 +38,29 @@ export default defineConfig({
     {
       ...shared,
       format: 'mf',
+      tools: {
+        // see github issue https://github.com/web-infra-dev/rslib/issues/1003#issuecomment-2889985244
+        rspack: (config) => {
+          config.experiments = {
+            outputModule: true
+          }
+        },
+      },
       output: {
         // set unpkg cdn as assetPrefix if you want to publish
-        assetPrefix:
-          process.env.NODE_ENV === 'production'
-            ? `http://localhost:4000`
-            : undefined,
+        assetPrefix: `http://localhost:4020`,
         distPath: {
           root: './dist/mf',
         },
       },
       plugins: [
         pluginModuleFederation({
-          name: pkg.name,
+          name: pkg.name, // rslib-mf-components
           // name: 'mf-components', // 组件库名称
           // filename: 'remoteEntry.js', // 远程入口文件名
           exposes: {
-            '.': './src/index.tsx',
+            // '.': './src/index.tsx',
+            './core': './src/index.tsx',
           },
 
           shared: {
@@ -63,11 +75,9 @@ export default defineConfig({
             type: 'module',
           },
         })
+
       ]
     },
   ],
-  server: {
-    port: 4000,
-  },
-  plugins: [pluginReact(),],
+
 });
