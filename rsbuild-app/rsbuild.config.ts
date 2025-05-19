@@ -11,10 +11,7 @@ export default defineConfig({
     pluginModuleFederation({
       name: 'mf-zlib-app',
       remotes: {
-        'rslib-mf-components': {
-          external: 'rslib-mf-components@http://localhost:4020/mf-manifest.json',
-          shareScope: 'default',
-        }
+        'rslib-mf-components': "rslib-mf-components@http://localhost:4020/mf-manifest.json"
       },
       shareStrategy: 'loaded-first',
       shared: {

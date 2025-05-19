@@ -59,7 +59,8 @@ export default defineConfig({
           // name: 'mf-components', // 组件库名称
           // filename: 'remoteEntry.js', // 远程入口文件名
           exposes: {
-            // '.': './src/index.tsx',
+
+            '.': './src/index.tsx',
             './core': './src/index.tsx',
           },
 
