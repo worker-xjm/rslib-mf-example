@@ -1,5 +1,5 @@
 {
-  "name": "app-mf-rsbuild",
+  "name": "app_mf_rsbuild",
   "private": true,
   "version": "1.0.0",
   "scripts": {
@@ -12,7 +12,6 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@module-federation/rsbuild-plugin": "0.13.1",
     "@rsbuild/core": "^1.2.15",
     "@rsbuild/plugin-react": "^1.1.1",
     "@types/react": "^18.3.11",

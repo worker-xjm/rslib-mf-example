@@ -42,9 +42,8 @@ export default defineConfig({
       plugins: [
         pluginModuleFederation({
           name: 'mf_provider',
-          // filename: 'remoteEntry.js',
           exposes: {
-            // './core': './src/index',
+            './core': './src/index',
             '.': './src/index.tsx',
           },
 

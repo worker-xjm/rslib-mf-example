@@ -7,16 +7,14 @@ export default defineConfig({
   plugins: [
     react(),
     federation({
-      dts: true,
+
       name: 'vite_mf_components',
       manifest: true,
-      filename: 'remoteEntry.js',
       remotes: {
-        'rslib-mf-components': {
+        'mf_provider': {
           type: 'module',
-          name: 'rslib-mf-components',
-          entry: 'http://localhost:4020/mf-manifest.json',
-          shareScope: 'default',
+          name: 'mf_provider',
+          entry: 'http://localhost:4000/mf-manifest.json',
         },
       },
       shared: {
