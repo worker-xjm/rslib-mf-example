@@ -36,7 +36,7 @@ pnpm create module-federation@latest
 
 ##  严重bug
 
-1. @module-federation/rsbuild-plugin 在 0.14.0 时将无法使用模块联邦
+1. @module-federation/rsbuild-plugin 在 0.14.0 时将无法使用模块联邦,除非全部更新一次依赖
 2. [快速开始](https://module-federation.io/zh/guide/start/quick-start.html) 命令执行完后需要手动update一次才能使用最新的
 3. remote/expose的key不能以包含- ,否则无法自动dev打包
 4. 

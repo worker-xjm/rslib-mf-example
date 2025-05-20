@@ -7,7 +7,6 @@ export default defineConfig({
     target: 'chrome89'
   },
   plugins: [
-
     federation({
       dts: true,
       name: 'vite_mf_components',

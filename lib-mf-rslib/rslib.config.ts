@@ -2,6 +2,7 @@ import { pluginReact } from '@rsbuild/plugin-react';
 import { defineConfig } from '@rslib/core';
 import { pluginModuleFederation } from '@module-federation/rsbuild-plugin';
 import pkg from './package.json';
+import { pluginLess } from '@rsbuild/plugin-less';
 
 const shared = {
   dts: {
@@ -10,6 +11,11 @@ const shared = {
 };
 
 export default defineConfig({
+  resolve: {
+    alias: {
+      '@': import.meta.resolve('./src'),
+    },
+  },
   lib: [
     {
       ...shared,
@@ -43,7 +49,6 @@ export default defineConfig({
         pluginModuleFederation({
           name: 'mf_provider',
           exposes: {
-            './core': './src/index',
             '.': './src/index.tsx',
           },
 
@@ -67,6 +72,6 @@ export default defineConfig({
   },
   plugins: [
     pluginReact(),
-
+    pluginLess()
   ],
 });

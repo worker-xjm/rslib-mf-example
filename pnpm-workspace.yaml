@@ -1,9 +1,12 @@
 packages:
   # 指定根目录直接子目录中的包
   - "app-mf-rsbuild"
+  - "app-mf-rspack"
+  - "app-mf-vite"
+  - "app-mf-webpack"
+  - "app-mf-cra"
   - "lib-mf-rsbuild"
   - "lib-mf-rslib"
-  - "vite-app"
-  - "vite-mf-components"
+  - "lib-mf-vite"
 
 shared-workspace-lockfile: true
