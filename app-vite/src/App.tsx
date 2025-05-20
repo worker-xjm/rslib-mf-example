@@ -2,7 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import Provider from 'rslib-mf-components/core'
+import Provider from 'rslib-mf-components'
 function App() {
   const [count, setCount] = useState(0)
 

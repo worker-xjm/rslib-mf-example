@@ -12,16 +12,8 @@ pnpm build
 
 Dev package
 
-1. 
 
 ```
 pnpm mf-dev
 ```
 
-2.
-
-```
-pnpm storybook
-```
-
-visit http://localhost:6006

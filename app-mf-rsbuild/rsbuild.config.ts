@@ -4,16 +4,18 @@ import { pluginModuleFederation } from '@module-federation/rsbuild-plugin';
 
 export default defineConfig({
   server: {
-    port: 4040,
+    port: 4010,
   },
   plugins: [
     pluginReact(),
     pluginModuleFederation({
-      name: 'mf-zlib-app',
+      name: 'app-mf-rsbuild',
       remotes: {
-        'rslib-mf-components': "rslib-mf-components@http://localhost:4020/mf-manifest.json"
+        // 'provider': 'rslib_provider@https://unpkg.com/module-federation-rslib-provider@latest/dist/mf/mf-manifest.json',
+        // 'provider': 'lib-mf-rslib@http://localhost:4000/remoteEntry.js',
+        'provider': 'mf_provider@http://localhost:4000/mf-manifest.json',
       },
-      shareStrategy: 'loaded-first',
+      // shareStrategy: 'loaded-first',
       shared: {
         react: { singleton: true },
         'react-dom': { singleton: true },

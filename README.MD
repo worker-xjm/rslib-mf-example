@@ -31,3 +31,9 @@ pnpm create module-federation@latest
 **vite-mf-components**
 
 由 `pnpm create viet `产生基本项目,并根据[Module Federation vite plugin](https://module-federation.io/zh/guide/basic/vite.html) 结合 [module-federation vite plugin](https://module-federation.io/zh/guide/basic/vite.html) 产生
+
+
+
+##  严重bug
+
+1. @module-federation/rsbuild-plugin 在 0.14.0 时将无法使用模块联邦

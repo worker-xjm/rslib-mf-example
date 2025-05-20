@@ -1,8 +1,8 @@
 packages:
   # 指定根目录直接子目录中的包
-  - "rsbuild-app"
-  - "rsbuild-mf-components"
-  - "rslib-mf-components"
+  - "app-mf-rsbuild"
+  - "lib-mf-rsbuild"
+  - "lib-mf-rslib"
   - "vite-app"
   - "vite-mf-components"
 
