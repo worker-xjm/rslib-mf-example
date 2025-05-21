@@ -34,12 +34,12 @@ module.exports = {
     },
     plugins: [
         new ModuleFederationPlugin({
-            name: 'mf_webpack',
+            name: 'webpack_remote_app',
             filename: 'remoteEntry.js',
             exposes: {
                 // 这里可以添加其他微前端的远程模块
                 // lib: 'lib@http://localhost:3001/remoteEntry.js',
-                'provider': './src/App.tsx',
+                provider: './src/App.tsx',
             },
             shared: {
                 react: { singleton: true, eager: true, requiredVersion: pkg.dependencies['react'] },
@@ -47,7 +47,7 @@ module.exports = {
             },
         }),
         new HtmlWebpackPlugin({
-            title: 'mf_webpack',
+            title: 'webpack_remote_app',
             template: './public/index.html',
         }),
     ],

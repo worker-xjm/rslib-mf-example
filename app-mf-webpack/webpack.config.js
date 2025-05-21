@@ -33,14 +33,14 @@ module.exports = {
     },
     plugins: [
         new ModuleFederationPlugin({
-            name: 'host_app',
+            name: 'webpack_host_app',
             remotes: {
                 // 这里可以添加其他微前端的远程模块
                 // lib: 'lib@http://localhost:3001/remoteEntry.js',
                 // provider: 'mf_provider@http://localhost:4000/mf_provider.js', // worked
-                // provider: 'rsbuild_mf_components@http://localhost:4070/remoteEntry.js',
-                // provider: 'mf_webpack@http://localhost:4080/remoteEntry.js', // can't work
-                provider: 'DymicPublicComponent@http://localhost:9999/remoteEntry.js', // can't work
+                // provider: 'rsbuild_mf_components@http://localhost:4070/remoteEntry.js', // worked
+                mf_webpack: 'webpack_remote_app@http://localhost:4080/remoteEntry.js', // can't work
+                // provider: 'DymicPublicComponent@http://localhost:9999/remoteEntry.js', // can't work
             },
             shared: {
                 react: { singleton: true, eager: true, requiredVersion: pkg.dependencies['react'] },
@@ -48,6 +48,7 @@ module.exports = {
             },
         }),
         new HtmlWebpackPlugin({
+            title: 'webpack_host_app',
             template: './public/index.html',
         }),
     ],

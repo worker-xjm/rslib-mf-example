@@ -203,7 +203,7 @@ pnpm run start
 3. 预览服务器运行端口 4080
 
 #### 导出模块
-模块名称：`mf_webpack`
+模块名称：`webpack_remote_app`     
 
 1. 脚本：http://localhost:4080/remoteEntry.js
 

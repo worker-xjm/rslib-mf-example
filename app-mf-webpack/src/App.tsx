@@ -1,6 +1,6 @@
 import React from 'react';
 // @ts-ignore
-import MFWebpack from 'provider'
+import MFWebpack from 'mf_webpack/provider'
 const App: React.FC = () => {
     return (
         <div>
