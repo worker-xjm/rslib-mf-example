@@ -6,6 +6,9 @@ export default defineConfig({
   server: {
     port: 4010,
   },
+  html: {
+    title: 'rsbuild app'
+  },
   plugins: [
     pluginReact(),
     pluginModuleFederation({
@@ -13,7 +16,8 @@ export default defineConfig({
       remotes: {
         // 'provider': 'rslib_provider@https://unpkg.com/module-federation-rslib-provider@latest/dist/mf/mf-manifest.json',
         // 'provider': 'lib-mf-rslib@http://localhost:4000/remoteEntry.js',
-        'provider': 'mf_provider@http://localhost:4000/mf-manifest.json',
+        // 'provider': 'mf_provider@http://localhost:4000/mf-manifest.json',
+        'provider2': 'rsbuild_mf_components@http://localhost:4070/mf-manifest.json',
       },
       // shareStrategy: 'loaded-first',
       shared: {

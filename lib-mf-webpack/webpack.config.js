@@ -47,6 +47,7 @@ module.exports = {
             },
         }),
         new HtmlWebpackPlugin({
+            title: 'mf_webpack',
             template: './public/index.html',
         }),
     ],

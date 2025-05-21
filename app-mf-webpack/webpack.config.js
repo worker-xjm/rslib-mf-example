@@ -37,9 +37,10 @@ module.exports = {
             remotes: {
                 // 这里可以添加其他微前端的远程模块
                 // lib: 'lib@http://localhost:3001/remoteEntry.js',
-                // provider: 'mf_provider@http://localhost:4000/mf_provider.js', // worked
+                provider: 'mf_provider@http://localhost:4000/mf_provider.js', // worked
                 // provider: 'rsbuild_mf_components@http://localhost:4070/mf-manifest.json', //  cant work
-                provider: 'mf_webpack@http://localhost:4080/remoteEntry.js',
+                // provider: 'mf_webpack@http://localhost:4080/remoteEntry.js',
+                // provider: 'rsbuild_mf_components@http://localhost:4071/remoteEntry.js', // cant
                 // provider: 'DymicPublicComponent@http://localhost:9999/remoteEntry.js',
             },
             shared: {
