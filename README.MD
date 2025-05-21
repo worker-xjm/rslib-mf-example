@@ -3,35 +3,50 @@
 
 ## 目录说明
 
-**rsbuild-app**
+**app-mf-cra**
 
-由[Module Federation 快速上手](https://module-federation.io/zh/guide/start/quick-start.html) 以下命令,并选择application时产生
+由 `npx create-react-app my-app` 产生的基础项目, 并执行 `pnpm eject `的结果, 项目从未测试
+
+
+**app-mf-rsbuild**
+
+由[Module Federation 快速上手](https://module-federation.io/zh/guide/start/quick-start.html) 产生 . 具体执行以下命令 , 并选择application时产生
 
 ```bash
-
 pnpm create module-federation@latest
-
 ```
 
+**app-mf-rspack**
 
-**rsbuild-mf-components**
+根据 [rspack 文档](https://rspack.dev/zh/guide/start/quick-start#%E4%BD%BF%E7%94%A8-rspack-cli) 产生, 从未使用/测试
 
-根据[rsbuild 快速上手](https://rsbuild.dev/zh/guide/start/quick-start),并[手动搭建](https://module-federation.io/zh/guide/basic/rsbuild.html)的 Module Federation 项目
 
-**rslib-mf-components**
+**app-mf-vite**
+
+由 `pnpm create viet` 产生基本项目, 并根据[Module Federation vite plugin](https://module-federation.io/zh/guide/basic/vite.html) 结合`git@github.com:gioboa/react-microfrontend-demo.git`/`git@github.com:module-federation/module-federation-examples.git` 产生
+
+**app-mf-webpack**
+
+由 ai 生成, 可以运行, 结合  [module-federation-plugin](https://webpack.docschina.org/plugins/module-federation-plugin/) 文档产生
+
+
+**lib-mf-rsbuild**
+
+根据[rsbuild 快速上手](https://rsbuild.dev/zh/guide/start/quick-start) , 并[手动搭建](https://module-federation.io/zh/guide/basic/rsbuild.html)的 Module Federation 项目
+
+**lib-mf-rslib**
 
 
 由[Module Federation 快速上手](https://module-federation.io/zh/guide/start/quick-start.html) 以下命令,并选择`lib`时产生
 
-**vite-app**
 
-由 `pnpm create viet `产生基本项目,并根据[Module Federation vite plugin](https://module-federation.io/zh/guide/basic/vite.html) 结合`git@github.com:gioboa/react-microfrontend-demo.git`/`git@github.com:module-federation/module-federation-examples.git`产生
-
-
-**vite-mf-components**
+**lib-mf-vite**
 
 由 `pnpm create viet `产生基本项目,并根据[Module Federation vite plugin](https://module-federation.io/zh/guide/basic/vite.html) 结合 [module-federation vite plugin](https://module-federation.io/zh/guide/basic/vite.html) 产生
 
+**lib-mf-webpack**
+
+由 ai 生成, 可以运行, 结合  [module-federation-plugin](https://webpack.docschina.org/plugins/module-federation-plugin/) 文档产生 . 但其产生的 mf 不能被其他项目使用
 
 
 ##  严重bug
@@ -257,7 +272,7 @@ pnpm run start
 
 - [x] 拉取 rslib mf_provider.js 正常运行
 - [x] rsbuild remoteEntry.js 正常运行
-- [ ]  webpack remoteEntry.js 报错
+- [ ] webpack remoteEntry.js 报错
 
 ```text
 VM235 index.js:485 [webpack-dev-server] Server started: Hot Module Replacement enabled, Live Reloading enabled, Progress disabled, Overlay enabled.
@@ -291,8 +306,6 @@ __webpack_require__ @ main.js:416
 (匿名) @ main.js:1872
 
 ```
-- [ ] 运行
-
 
 ### lib-mf-rsbuild
 
