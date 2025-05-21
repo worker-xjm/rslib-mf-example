@@ -7,18 +7,20 @@ export default defineConfig({
     port: 4070,
   },
   /* moduleFederation: {
-    options: {
-      name: 'rsbuild_mf_components',
-      exposes: {
-        '.': './src/App.tsx'
-      }
-    }
-
-  }, */
+     options: {
+       name: pkg.name,
+       filename: 'remoteEntry.js',
+       exposes: {
+         '.': './src/App.tsx'
+       }
+     }
+ 
+   }, */
   plugins: [
     pluginReact(),
     pluginModuleFederation({
       name: pkg.name,
+      filename: 'remoteEntry.js',
       exposes: {
         '.': './src/App.tsx'
       }

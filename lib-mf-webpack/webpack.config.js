@@ -5,9 +5,10 @@ module.exports = {
     entry: './src/index.tsx',
     mode: 'development',
     devServer: {
-        port: 4090,
+        port: 4080,
         hot: true,
         historyApiFallback: true,
+        // open: true, // 自动打开浏览器
     },
     output: {
         publicPath: 'auto', // 自动处理公共路径
@@ -33,14 +34,12 @@ module.exports = {
     },
     plugins: [
         new ModuleFederationPlugin({
-            name: 'host_app',
-            remotes: {
+            name: 'mf_webpack',
+            filename: 'remoteEntry.js',
+            exposes: {
                 // 这里可以添加其他微前端的远程模块
                 // lib: 'lib@http://localhost:3001/remoteEntry.js',
-                // provider: 'mf_provider@http://localhost:4000/mf_provider.js', // worked
-                // provider: 'rsbuild_mf_components@http://localhost:4070/mf-manifest.json', //  cant work
-                provider: 'mf_webpack@http://localhost:4080/remoteEntry.js',
-                // provider: 'DymicPublicComponent@http://localhost:9999/remoteEntry.js',
+                'provider': './src/App.tsx',
             },
             shared: {
                 react: { singleton: true, eager: true, requiredVersion: pkg.dependencies['react'] },

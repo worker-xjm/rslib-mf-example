@@ -4,25 +4,30 @@ import { federation } from '@module-federation/vite'
 // https://vite.dev/config/
 export default defineConfig({
   build: {
-    target: 'chrome89'
+    target: 'es2020'
   },
+  server: {
+    port: 4050,
+  },
+  preview: {
+    port: 4060
+  },
+
   plugins: [
     federation({
-      dts: true,
+      // dts: true,
       name: 'vite_mf_components',
       manifest: true,
       filename: 'remoteEntry.js',
       exposes: {
         '.': './src/App.tsx',
       },
-      library: {
-        type: 'module',
-      },
+
       shared: {
         react: {
           singleton: true,
         },
-        'react/': {
+        'react-dom': {
           singleton: true,
         },
       },

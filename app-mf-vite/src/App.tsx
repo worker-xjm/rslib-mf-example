@@ -8,6 +8,8 @@ import Provider from 'mf_provider'
 import MFRsbuild from 'mf_rsbuild_components'
 // @ts-ignore
 // import MFVite from 'mf_vite_components'
+// @ts-ignore
+// import MFWebpack from 'mf_webpack_components'
 function App() {
   const [count, setCount] = useState(0)
 
@@ -39,6 +41,8 @@ function App() {
       <MFRsbuild />
       {/* from vite mf */}
       {/* <MFVite /> */}
+      {/* from webpack mf */}
+      {/* <MFWebpack /> */}
     </>
   )
 }

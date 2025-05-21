@@ -8,5 +8,6 @@ packages:
   - "lib-mf-rsbuild"
   - "lib-mf-rslib"
   - "lib-mf-vite"
+  - "lib-mf-webpack"
 
 shared-workspace-lockfile: true

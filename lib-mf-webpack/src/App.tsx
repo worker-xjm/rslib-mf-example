@@ -1,11 +1,9 @@
 import React from 'react';
-// @ts-ignore
-import MFWebpack from 'provider'
+
 const App: React.FC = () => {
     return (
         <div>
-            <div>host app</div>
-            <MFWebpack />
+            <button>the remote button</button>
         </div>
     );
 };
