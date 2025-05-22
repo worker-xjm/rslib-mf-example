@@ -39,7 +39,8 @@ module.exports = {
             exposes: {
                 // 这里可以添加其他微前端的远程模块
                 // lib: 'lib@http://localhost:3001/remoteEntry.js',
-                provider: './src/App.tsx',
+                './provider': './src/App.tsx',
+                '.': './src/App.tsx',
             },
             shared: {
                 react: { singleton: true, eager: true, requiredVersion: pkg.dependencies['react'] },

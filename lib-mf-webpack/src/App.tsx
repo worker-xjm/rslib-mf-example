@@ -1,6 +1,6 @@
-import { FC } from 'react';
+import React from 'react';
 
-const App: FC = () => {
+const App: React.FC = () => {
     return (
         <div>
             <button>the remote button</button>
