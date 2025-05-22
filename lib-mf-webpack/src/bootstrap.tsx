@@ -8,7 +8,7 @@ const root = createRoot(container);
 
 root.render(
     <React.StrictMode>
-        <App />
         <div>lib bootstrap.tsx</div>
+        <App />
     </React.StrictMode>
 ); 

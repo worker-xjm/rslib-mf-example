@@ -124,6 +124,8 @@ pnpm run start
   container_entry:12  Uncaught (in promise) Error: Module "." does not exist in container.
   while loading "." from webpack/container/reference/provider
   ```
+  
+  已修复,lib-mf-webpack 配置错误
 
 ### lib-mf-rsbuild
 基于 `rsbuild` 的模块联邦项目
@@ -204,6 +206,8 @@ pnpm run start
 
 #### 导出模块
 模块名称：`webpack_remote_app`     
+
+子包: app
 
 1. 脚本：http://localhost:4080/remoteEntry.js
 

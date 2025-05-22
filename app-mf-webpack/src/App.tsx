@@ -1,10 +1,13 @@
 import React from 'react';
 // @ts-ignore
-// import MFWebpack from 'mf_webpack/provider'
+// import MFWebpack from 'provider/app'
 // @ts-ignore
-// import MFWebpack from 'mf_webpack'
+// import MFWebpack from 'provider/app'
 // @ts-ignore
-const MFWebpackLazy = React.lazy(() => import('mf_webpack'))
+const MFWebpackLazy = React.lazy(() => import('provider/app'))
+
+// const MFWebpackLazy = React.lazy(() => import('provider/DymicPublicComponent')) // can't work
+// import MFWebpack from 'provider/DymicPublicComponent'
 const App: React.FC = () => {
 
     return (
@@ -16,6 +19,7 @@ const App: React.FC = () => {
             <React.Suspense fallback={<div>Loading...</div>}>
                 <MFWebpackLazy />
             </React.Suspense>
+            {/* <MFWebpack componentName="KYCrumbs" /> */}
         </div>
     );
 };
