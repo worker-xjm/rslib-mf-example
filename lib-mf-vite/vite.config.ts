@@ -21,7 +21,7 @@ export default defineConfig({
         '.': './src/App.tsx',
         './app': './src/App.tsx',
       },
-      filename: 'remoteEntry-[hash].js',
+      filename: 'remoteEntry.js', // 必须要有,否则将导致入口文件不正常
       manifest: true,
 
       shared: {

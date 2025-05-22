@@ -15,14 +15,14 @@
 ### 库项目
 - **lib-mf-rsbuild**: 根据[rsbuild 快速上手](https://rsbuild.dev/zh/guide/start/quick-start)，并[手动搭建](https://module-federation.io/zh/guide/basic/rsbuild.html)的 Module Federation 项目
 - **lib-mf-rslib**: 由[Module Federation 快速上手](https://module-federation.io/zh/guide/start/quick-start.html)以下命令，并选择`lib`时产生
-- **lib-mf-vite**: 由 `pnpm create viet` 产生基本项目，并根据[Module Federation vite plugin](https://module-federation.io/zh/guide/basic/vite.html)结合 [module-federation vite plugin](https://module-federation.io/zh/guide/basic/vite.html) 产生
+- **lib-mf-vite**: 由 `pnpm create viet` 产生基本项目，并根据[Module Federation vite plugin](https://module-federation.io/zh/guide/basic/vite.html)结合产生
 - **lib-mf-webpack**: 由 AI 生成，可以运行，结合 [module-federation-plugin](https://webpack.docschina.org/plugins/module-federation-plugin/) 文档产生，但其产生的 mf 不能被其他项目使用
 
 ## ⚠️ 严重 Bug
 
 1. 由 `pnpm create module-federation@latest` 命令产生的 初始项目 依赖相互之间不匹配, 导致 命令创建的项目不能直接使用, 除非 全量 `update` 一次
 2. remote/expose 的配置 key 不能包含 `-`，否则在基于rspack的项目自动打包时会报错并无法成功构建,就算构建成功可能也无法在引用端正常使用
-3. mf vite plugin 和 基于 rspack 的插件使用体验完全不一致
+3. mf vite plugin 和 基于 rspack 的插件使用体验完全不一致:主要体现在 ts , 如果按照 webpack 的写法,不会出现太大的问题
 
 
 ## 本仓库预览方法
@@ -120,7 +120,7 @@ pnpm run dev
   ```
   lib_mf_webpack 打包导出错误,如果要使用webpack 的 lib 需要关闭  shareStrategy 选项,关闭shareStrategy 可能导致引用 rslib mf 出现错误
 
-- [ ] 使用 `vite` `remoteEntry.js` (4060) 远程文件报错
+- [ ] 使用 `vite` `remoteEntry.js` (4050) 远程文件报错
   ```text
   [ Federation Runtime ]: remoteEntryExports is undefined 
   {
@@ -151,7 +151,7 @@ pnpm run dev
     at async Promise.all (index 4)
     at async Promise.all (index 2)
   ```
-- [ ] 使用 `vite` `mf-manifest` (4060) 远程文件报错
+- [x] 使用 `vite` `mf-manifest` (4060) 远程文件报错 (已修复, vite 打包配置问题)
 
 ### app-mf-rspack
 基于 `rspack` 创建的应用，从未测试
@@ -177,18 +177,31 @@ pnpm run dev
   remoteEntry.js:326 [HMR] Waiting for update signal from WDS...
   container_entry:12  Uncaught Error: Module "." does not exist in container.
   ```
-- ❌ 对 vite mf-manifest (4050) 协议无法解析
+- ✅ 对 vite mf-manifest (4050) 协议无法解析 (已修复,vite 打包问题)
 - ❌ 对 vite remoteEntry.js (4050) 报错
   ```text
-  remoteEntry.js:2  Uncaught SyntaxError: Cannot use import statement outside a module (at remoteEntry.js:2:3)
-  index.cjs.js:21  Uncaught Error: [ Federation Runtime ]: remoteEntryExports is undefined 
+  [ Federation Runtime ]: remoteEntryExports is undefined 
   {
-    "entryGlobalName": "vite_mf_components",
-    "name": "mf_rsbuild_components",
+    "entryGlobalName": "http://localhost:4050/remoteEntry.js",
+    "name": "vitemfc",
     "type": "var",
     "entry": "http://localhost:4050/remoteEntry.js",
     "shareScope": "default"
   }
+  Error: [ Federation Runtime ]: remoteEntryExports is undefined 
+  {
+    "entryGlobalName": "http://localhost:4050/remoteEntry.js",
+    "name": "vitemfc",
+    "type": "var",
+    "entry": "http://localhost:4050/remoteEntry.js",
+    "shareScope": "default"
+  }
+    at error2 (http://localhost:5173/node_modules/.vite/deps/chunk-MQ6423JS.js?v=85b979db:1187:13)
+    at assert2 (http://localhost:5173/node_modules/.vite/deps/chunk-MQ6423JS.js?v=85b979db:1179:9)
+    at Module.getEntry (http://localhost:5173/node_modules/.vite/deps/chunk-MQ6423JS.js?v=85b979db:2299:9)
+    at async Module.get (http://localhost:5173/node_modules/.vite/deps/chunk-MQ6423JS.js?v=85b979db:2309:36)
+    at async RemoteHandler.loadRemote (http://localhost:5173/node_modules/.vite/deps/chunk-MQ6423JS.js?v=85b979db:3582:35)
+    at async http://localhost:5173/node_modules/.vite/deps/vitemfc.js?v=85b979db:25:49
   ```
 
 **vite插件使用注意事项**
@@ -217,6 +230,58 @@ pnpm run start
   remoteEntry.js:326 [HMR] Waiting for update signal from WDS...
   container_entry:12  Uncaught (in promise) Error: Module "." does not exist in container.
   while loading "." from webpack/container/reference/provider
+  ```
+- [ ] vite remoteEntry.js 报错
+  ```text
+  ERROR
+  Script error.
+      at handleError (webpack://app-mf-webpack/../node_modules/.pnpm/webpack-dev-server@4.15.2_webpack-cli@5.1.4_webpack@5.99.8/node_modules/webpack-dev-server/client/overlay.js?:251:58)
+      at eval (webpack://app-mf-webpack/../node_modules/.pnpm/webpack-dev-server@4.15.2_webpack-cli@5.1.4_webpack@5.99.8/node_modules/webpack-dev-server/client/overlay.js?:270:7)
+  ERROR
+  Loading script failed.
+  (missing: http://localhost:4050/remoteEntry.js)
+  while loading "." from webpack/container/reference/provider
+  ScriptExternalLoadError
+      at webpack/container/reference/provider (http://localhost:4090/main.js:377:25)
+      at __webpack_require__ (http://localhost:4090/main.js:417:32)
+      at initExternal (http://localhost:4090/main.js:703:28)
+      at __webpack_require__.I (http://localhost:4090/main.js:716:15)
+      at http://localhost:4090/main.js:1213:47
+      at webpack/sharing/consume/default/react/react (http://localhost:4090/main.js:1264:67)
+      at __webpack_require__.m.<computed> (http://localhost:4090/main.js:1273:54)
+      at __webpack_require__ (http://localhost:4090/main.js:417:32)
+      at fn (http://localhost:4090/main.js:787:21)
+      at eval (webpack://app-mf-webpack/./src/index.tsx?:2:63)
+  ERROR
+  Loading script failed.
+  (missing: http://localhost:4050/remoteEntry.js)
+  while loading "." from webpack/container/reference/provider
+  ScriptExternalLoadError
+      at webpack/container/reference/provider (http://localhost:4090/main.js:377:25)
+      at __webpack_require__ (http://localhost:4090/main.js:417:32)
+      at initExternal (http://localhost:4090/main.js:703:28)
+      at __webpack_require__.I (http://localhost:4090/main.js:716:15)
+      at http://localhost:4090/main.js:1213:47
+      at webpack/sharing/consume/default/react/react (http://localhost:4090/main.js:1264:67)
+      at __webpack_require__.m.<computed> (http://localhost:4090/main.js:1273:54)
+      at __webpack_require__ (http://localhost:4090/main.js:417:32)
+      at fn (http://localhost:4090/main.js:787:21)
+      at eval (webpack://app-mf-webpack/./src/index.tsx?:2:63)
+  ERROR
+  Loading script failed.
+  (missing: http://localhost:4050/remoteEntry.js)
+  while loading "." from webpack/container/reference/provider
+  ScriptExternalLoadError
+      at webpack/container/reference/provider (http://localhost:4090/main.js:377:25)
+      at __webpack_require__ (http://localhost:4090/main.js:417:32)
+      at initExternal (http://localhost:4090/main.js:703:28)
+      at __webpack_require__.I (http://localhost:4090/main.js:716:15)
+      at http://localhost:4090/main.js:1213:47
+      at webpack/sharing/consume/default/react/react (http://localhost:4090/main.js:1264:67)
+      at __webpack_require__.m.<computed> (http://localhost:4090/main.js:1273:54)
+      at __webpack_require__ (http://localhost:4090/main.js:417:32)
+      at fn (http://localhost:4090/main.js:787:21)
+      at eval (webpack://app-mf-webpack/./src/index.tsx?:2:63)
   ```
   
 

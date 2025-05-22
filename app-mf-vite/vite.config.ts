@@ -20,6 +20,12 @@ export default defineConfig({
         'mf_rsbuild_remoteEntry': 'rsbuild_mf_components@http://localhost:4070/remoteEntry.js',
         // use lib-mf-vite worked
         'vite_mf_manifest': 'vitemfc@http://localhost:4050/mf-manifest.json',
+        'vitemfc': 'http://localhost:4050/remoteEntry.js',
+        /* 'vitemfc': {
+          name: 'vite_mf_remoteEntry',
+          type: 'module',
+          entry: 'http://localhost:4050/remoteEntry.js',
+        }, */
         // webpack is worked
         'webpack_remoteEntry': 'remote_mf_webpack@http://localhost:4080/remoteEntry.js',
         // cant't be work on original webpack mf

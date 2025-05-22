@@ -3,18 +3,16 @@ import './App.css';
 import RSLibProvider from 'rslib_provider';
 import RSLibManifestProvider from 'rslib_manifest_provider';
 import RSBuildProvider from 'rsbuild_provider';
-import RSBuildManifestProvider from 'rsbuild_manifest_provider';
-
-
+import RSBuildManifestProvider from 'rsbuild_manifest';
 // @ts-ignore
-// import ViteMF from 'vite_mf_components';
+// import ViteRemoteEntry from 'vite_mf_remoteEntry';
 // @ts-ignore
-// import ViteMFManifest from 'vite_mf_manifest_provider';
+import ViteMFManifest from 'vite_mf_manifest';
 
 
 
 // @ts-ignore
-import Provider from 'mf_wp';
+import Provider from 'webpack_mf_remoteEntry';
 // @ts-ignore
 // import MFWebpack from 'mf_wp_origin/DymicPublicComponent';
 
@@ -28,12 +26,12 @@ const App: FC = () => {
       <RSLibManifestProvider />
       <div>from rsbuild_provider mf</div>
       <RSBuildProvider />
-      <div>from rsbuild_manifest_provider mf manifest </div>
+      <div>from rsbuild_manifest mf manifest </div>
       <RSBuildManifestProvider />
-      <div>from vite_mf_components mf (cant't work)</div>
-      {/* <ViteMF /> */}
-      <div>from vite_mf_manifest_provider mf manifest (cant't work)</div>
-      {/* <ViteMFManifest /> */}
+      <div>from vite_mf_manifest mf manifest</div>
+      <ViteMFManifest />
+      <div>from vite_mf_remoteEntry mf manifest (cant't work)</div>
+      {/* <ViteRemoteEntry /> */}
       <div>from webpack mf</div>
       <Provider />
       <div>from original webpack mf (can't work)</div>
