@@ -4,11 +4,10 @@ import { federation } from '@module-federation/vite'
 // import pkg from './package.json'
 // https://vite.dev/config/
 export default defineConfig({
-  build: {
-    target: 'chrome89', // 注释此行将导致不可打包 
-  },
+
   server: {
     port: 4050,
+    origin: 'http://localhost:4050',
   },
   preview: {
     port: 4060
@@ -17,13 +16,13 @@ export default defineConfig({
   plugins: [
     federation({
       // dts: true, // 无效选项 see https://module-federation.io/zh/guide/basic/vite.html#vite-plugin
-      name: 'vite_mf_components',
-      manifest: true,
-      filename: 'remoteEntry.js',
+      name: 'vitemfc',
       exposes: {
         '.': './src/App.tsx',
         './app': './src/App.tsx',
       },
+      filename: 'remoteEntry-[hash].js',
+      manifest: true,
 
       shared: {
         react: {
@@ -36,4 +35,14 @@ export default defineConfig({
     }),
     react(),
   ],
+  build: {
+    target: 'chrome89', // 注释此行将导致不可打包 
+    rollupOptions: {
+      output: {
+        chunkFileNames: 'static/js/[name]-[hash].js',
+        entryFileNames: 'static/js/[name]-[hash].js',
+        assetFileNames: 'static/[ext]/[name]-[hash].[ext]',
+      },
+    },
+  },
 })

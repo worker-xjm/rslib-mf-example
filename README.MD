@@ -44,7 +44,7 @@
 1. lib-mf-rsbuild
   
   ```bash
-  pnpm --filter rsbuild_mf_components dev # 大写的C
+  pnpm --filter rsbuild_mf_components dev
   ```
 2. lib-mf-rslib
   ```bash
@@ -52,7 +52,7 @@
   ```
   另外,如果想尝试修改并享受到实时的编译便利,还需要启动
   ```bash
-  pnpm --filter lib-mf-rslib  dev
+  pnpm --filter lib-mf-rslib dev
   ```
 3. lib-mf-vite: 待解决打包和共享问题
 4. lib-mf-webpack
@@ -73,7 +73,7 @@
   ```
 3. app-mf-webpack
   ```bash
-  pnpm --filter app-mf-webpack  start
+  pnpm --filter app-mf-webpack start
   ```
 
 
