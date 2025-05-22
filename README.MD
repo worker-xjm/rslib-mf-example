@@ -24,6 +24,59 @@
 2. remote/expose 的配置 key 不能包含 `-`，否则在基于rspack的项目自动打包时会报错并无法成功构建,就算构建成功可能也无法在引用端正常使用
 3. mf vite plugin 和 基于 rspack 的插件使用体验完全不一致
 
+
+## 本仓库预览方法
+
+要想正常启动本仓库中的案例,并预览测试,需要先启动以lib开头的预览mf服务器
+
+然后再启动app开头的预览服务器
+
+其中以下目录的应用并未支持预览,需要自行配置
+
+- app-mf-cra
+- app-mf-rspack
+
+下文介绍的运行命令, 是假定预览用户执行命令的路径为项目根目录下
+
+### 启动目录以lib开头的项目
+
+
+1. lib-mf-rsbuild
+  
+  ```bash
+  pnpm --filter rsbuild_mf_components dev # 大写的C
+  ```
+2. lib-mf-rslib
+  ```bash
+  pnpm --filter lib-mf-rslib mf-dev
+  ```
+  另外,如果想尝试修改并享受到实时的编译便利,还需要启动
+  ```bash
+  pnpm --filter lib-mf-rslib  dev
+  ```
+3. lib-mf-vite: 待解决打包和共享问题
+4. lib-mf-webpack
+  ```bash
+  pnpm --filter lib-mf-webpack start
+  ```
+
+### 启动app
+
+1. app-mf-rsbuild
+  ```bash
+  pnpm --filter app_mf_rsbuild dev
+  ```
+
+2. app-mf-vite
+  ```bash
+  pnpm --filter app-mf-vite dev
+  ```
+3. app-mf-webpack
+  ```bash
+  pnpm --filter app-mf-webpack  start
+  ```
+
+
 ## 📋 项目说明
 
 ### app-mf-cra
@@ -250,4 +303,8 @@ pnpm run start
 子包: app
 
 1. 脚本：http://localhost:4080/remoteEntry.js
+
+
+
+
 

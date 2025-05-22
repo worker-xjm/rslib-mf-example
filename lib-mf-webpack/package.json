@@ -1,5 +1,5 @@
 {
-    "name": "app-mf-webpack",
+    "name": "lib-mf-webpack",
     "version": "1.0.0",
     "description": "Webpack 5 Module Federation Example",
     "scripts": {
