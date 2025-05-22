@@ -10,22 +10,23 @@ export default defineConfig({
       name: pkg.name,
       manifest: true,
       remotes: {
-        // rs lib
-        /*  'mf_provider': {
-           type: 'module',
-           name: 'mf_provider',
-           entry: 'http://localhost:4000/mf-manifest.json',
-         }, */
-        // cant't be work
+        // rslib worked
+        /* 'mf_provider': {
+          type: 'module',
+          name: 'mf_provider',
+          entry: 'http://localhost:4000/mf-manifest.json',
+        }, */
+        // rslib worked
         'mf_provider': "mf_provider@http://localhost:4000/mf_provider.js",
-        // rsbuild
+        // rsbuild worked
         /* 'mf_rsbuild_components': {
           type: 'module',
           name: 'mf_rsbuild_components',
           entry: 'http://localhost:4070/mf-manifest.json',
         }, */
+        // rsbuild worked
         'mf_rsbuild_components': 'rsbuild_mf_components@http://localhost:4070/remoteEntry.js',
-        // cant't be work
+        // use lib-mf-vite  cant't be work 
         /* 'mf_vite_components': {
           type: 'module',
           name: 'vite_mf_components',
@@ -34,12 +35,12 @@ export default defineConfig({
           shareScope: "default",
 
         }, */
-        // cant't be work
+        //  use lib-mf-vite  cant't be work
         // 'mf_vite_components': 'vite_mf_components@http://localhost:4050/remoteEntry.js',
-        // cant't be work
-        // 'mf_webpack_components': 'mf_webpack@http://localhost:4080/remoteEntry.js',
-        // cant't be work
-        // 'mf_webpack_components': 'DymicPublicComponent@http://localhost:9999/remoteEntry.js'
+        // webpack is worked
+        'mf_webpack_components': 'webpack_remote_app@http://localhost:4080/remoteEntry.js',
+        // cant't be work on original webpack mf
+        // 'mf_webpack_components': 'eipReactCommonAssets@http://localhost:9999/remoteEntry.js'
       },
       shared: {
         react: {

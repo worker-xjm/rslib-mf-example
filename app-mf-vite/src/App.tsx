@@ -9,7 +9,11 @@ import MFRsbuild from 'mf_rsbuild_components'
 // @ts-ignore
 // import MFVite from 'mf_vite_components'
 // @ts-ignore
-// import MFWebpack from 'mf_webpack_components'
+import MFWebpack from 'mf_webpack_components'
+// @ts-ignore
+// import MFWebpack from 'mf_webpack_components/DymicPublicComponent'
+
+
 function App() {
   const [count, setCount] = useState(0)
 
@@ -35,14 +39,15 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-      {/* from rslib mf */}
+      <div>from rslib mf</div>
       <Provider />
-      {/* from rsbuild mf */}
+      <div>from rsbuild mf</div>
       <MFRsbuild />
-      {/* from vite mf */}
+      <div>from vite mf ( can't be work) </div>
       {/* <MFVite /> */}
-      {/* from webpack mf */}
-      {/* <MFWebpack /> */}
+      <hr />
+      <div>from webpack mf</div>
+      <MFWebpack componentName="KYEmpty" />
     </>
   )
 }
