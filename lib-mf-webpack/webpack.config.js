@@ -34,7 +34,7 @@ module.exports = {
     },
     plugins: [
         new ModuleFederationPlugin({
-            name: 'webpack_remote_app',
+            name: 'remote_mf_webpack',
             filename: 'remoteEntry.js',
             exposes: {
                 // 这里可以添加其他微前端的远程模块

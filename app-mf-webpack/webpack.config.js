@@ -39,7 +39,7 @@ module.exports = {
                 // lib: 'lib@http://localhost:3001/remoteEntry.js',
                 // provider: 'mf_provider@http://localhost:4000/mf_provider.js', // lib-mf-rslib 已正常使用
                 // provider: 'rsbuild_mf_components@http://localhost:4070/remoteEntry.js', // lib-mf-rsbuild 已正常使用
-                // provider: 'webpack_remote_app@http://localhost:4080/remoteEntry.js', // lib-mf-webpack 已正常使用
+                // provider: 'remote_mf_webpack@http://localhost:4080/remoteEntry.js', // lib-mf-webpack 已正常使用
                 // provider: 'vite_mf_components@http://localhost:4050/remoteEntry.js', // lib-mf-vite 不能正常使用
                 provider: 'eipReactCommonAssets@http://localhost:9999/remoteEntry.js', // legacy-webpack 已正常使用
             },

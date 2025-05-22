@@ -33,12 +33,11 @@ export default defineConfig({
           entry: 'http://localhost:4050/mf-manifest.json',
           entryGlobalName: "vite_mf_components",
           shareScope: "default",
-
         }, */
         //  use lib-mf-vite  cant't be work
         // 'mf_vite_components': 'vite_mf_components@http://localhost:4050/remoteEntry.js',
         // webpack is worked
-        'mf_webpack_components': 'webpack_remote_app@http://localhost:4080/remoteEntry.js',
+        'mf_webpack_components': 'remote_mf_webpack@http://localhost:4080/remoteEntry.js',
         // cant't be work on original webpack mf
         // 'mf_webpack_components': 'eipReactCommonAssets@http://localhost:9999/remoteEntry.js'
       },
