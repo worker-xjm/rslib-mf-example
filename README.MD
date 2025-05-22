@@ -22,6 +22,7 @@
 
 1. 由 `pnpm create module-federation@latest` 命令产生的 初始项目 依赖相互之间不匹配, 导致 命令创建的项目不能直接使用, 除非 全量 `update` 一次
 2. remote/expose 的配置 key 不能包含 `-`，否则在基于rspack的项目自动打包时会报错并无法成功构建,就算构建成功可能也无法在引用端正常使用
+3. mf vite plugin 和 基于 rspack 的插件使用体验完全不一致
 
 ## 📋 项目说明
 
@@ -41,7 +42,7 @@ pnpm run dev
 #### 测试结果
 - ✅ 使用 `rslib` `mf-manifest` (4000端口) 协议正常使用
 - ✅ 使用 `rsbuild` `mf-manifest`(4070端口) 协议正常使用
-- ❌ 使用 `rslib` `remoteEntry.js`(4000端口) 远程文件报错
+- ✅ 使用 `rslib` `remoteEntry.js`(4000端口) 远程文件报错
   ```text
   index.cjs.cjs:21  Uncaught (in promise) Error: [ Federation Runtime ]: remoteEntryExports is undefined 
   {
@@ -55,14 +56,49 @@ pnpm run dev
   }
   while loading "." from webpack/container/reference/provider
   ```
+  导入名称错误
 - ✅ 使用 `rsbuild` `remoteEntry.js` (4070端口) 远程文件正常使用
-- ❌ 使用 `webpack` `remoteEntry.js` (4080端口) 远程文件报错
+- ✅ 使用 `webpack` `remoteEntry.js` (4080端口) 远程文件报错
   ```text
   remoteEntry.js:163 [webpack-dev-server] Server started: Hot Module Replacement enabled, Live Reloading enabled, Progress disabled, Overlay enabled.
   remoteEntry.js:326 [HMR] Waiting for update signal from WDS...
   container_entry:12  Uncaught (in promise) Error: Module "." does not exist in container.
   while loading "." from webpack/container/reference/provider
   ```
+  lib_mf_webpack 打包导出错误,如果要使用webpack 的 lib 需要关闭  shareStrategy 选项,关闭shareStrategy 可能导致引用 rslib mf 出现错误
+
+- [ ] 使用 `vite` `remoteEntry.js` (4060) 远程文件报错
+  ```text
+  [ Federation Runtime ]: remoteEntryExports is undefined 
+  {
+    "alias": "vite_mf_components",
+    "name": "vite_mf_components",
+    "entry": "http://localhost:4060/remoteEntry.js",
+    "externalType": "script",
+    "shareScope": "default",
+    "type": "global",
+    "entryGlobalName": "vite_mf_components"
+  }
+  while loading "." from webpack/container/reference/vite_mf_components
+  Error: [ Federation Runtime ]: remoteEntryExports is undefined 
+  {
+    "alias": "vite_mf_components",
+    "name": "vite_mf_components",
+    "entry": "http://localhost:4060/remoteEntry.js",
+    "externalType": "script",
+    "shareScope": "default",
+    "type": "global",
+    "entryGlobalName": "vite_mf_components"
+  }
+    at error (http://localhost:4010/static/js/vendors-_module-federation_runtime_rspack_js_data_text_javascript_import___module_federation_-ffb8fe.js:688:11)
+    at assert (http://localhost:4010/static/js/vendors-_module-federation_runtime_rspack_js_data_text_javascript_import___module_federation_-ffb8fe.js:680:9)
+    at Module.getEntry (http://localhost:4010/static/js/vendors-_module-federation_runtime_rspack_js_data_text_javascript_import___module_federation_-ffb8fe.js:1868:9)
+    at async Module.get (http://localhost:4010/static/js/vendors-_module-federation_runtime_rspack_js_data_text_javascript_import___module_federation_-ffb8fe.js:1878:36)
+    at async RemoteHandler.loadRemote (http://localhost:4010/static/js/vendors-_module-federation_runtime_rspack_js_data_text_javascript_import___module_federation_-ffb8fe.js:3232:37)
+    at async Promise.all (index 4)
+    at async Promise.all (index 2)
+  ```
+- [ ] 使用 `vite` `mf-manifest` (4060) 远程文件报错
 
 ### app-mf-rspack
 基于 `rspack` 创建的应用，从未测试
@@ -79,9 +115,15 @@ pnpm run dev
 
 #### 测试结果
 - ✅ 对 rslib mf-manifest (4000端口) 协议正常使用
-- ✅ 对 rsbuild mf-manifest (4070端口) 协议正常使用
 - ✅ 对 rslib mf_provider.js (4000端口) 远程文件正常使用
+- ✅ 对 rsbuild mf-manifest (4070端口) 协议正常使用
 - ✅ 对 rsbuild remoteEntry.js (4070) 远程文件正常使用
+- ✅ 使用 webpack remoteEntry.js (4080) 远程文件报错(_现已修复,webpack 配置文件错误_)
+  ```text
+  remoteEntry.js:163 [webpack-dev-server] Server started: Hot Module Replacement enabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+  remoteEntry.js:326 [HMR] Waiting for update signal from WDS...
+  container_entry:12  Uncaught Error: Module "." does not exist in container.
+  ```
 - ❌ 对 vite mf-manifest (4050) 协议无法解析
 - ❌ 对 vite remoteEntry.js (4050) 报错
   ```text
@@ -95,12 +137,11 @@ pnpm run dev
     "shareScope": "default"
   }
   ```
-- ❌ 使用 webpack remoteEntry.js (4080) 远程文件报错
-  ```text
-  remoteEntry.js:163 [webpack-dev-server] Server started: Hot Module Replacement enabled, Live Reloading enabled, Progress disabled, Overlay enabled.
-  remoteEntry.js:326 [HMR] Waiting for update signal from WDS...
-  container_entry:12  Uncaught Error: Module "." does not exist in container.
-  ```
+
+**vite插件使用注意事项**
+
+详见 `vite.config.ts` 注释
+
 
 ### app-mf-webpack
 基于 webpack 创建的 app
@@ -115,7 +156,7 @@ pnpm run start
 #### 测试结果
 - ✅ 拉取 rslib mf_provider.js 正常运行
 - ✅ rsbuild remoteEntry.js 正常运行
-- ❌ webpack remoteEntry.js 报错
+- ✅ webpack remoteEntry.js 报错(_已修复,lib-mf-webpack 配置错误_)
   ```text
   VM235 index.js:485 [webpack-dev-server] Server started: Hot Module Replacement enabled, Live Reloading enabled, Progress disabled, Overlay enabled.
   VM228 log.js:39 [HMR] Waiting for update signal from WDS...
@@ -125,7 +166,6 @@ pnpm run start
   while loading "." from webpack/container/reference/provider
   ```
   
-  已修复,lib-mf-webpack 配置错误
 
 ### lib-mf-rsbuild
 基于 `rsbuild` 的模块联邦项目

@@ -3,9 +3,13 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 // @ts-ignore
-import Provider from 'mf_provider'
+import Provider from 'mf_provider_remoteEntry'
 // @ts-ignore
-import MFRsbuild from 'mf_rsbuild_components'
+import MFRsLibManifestRsbuild from 'rslib_remote_mf_manifest'
+// @ts-ignore
+import MFRsbuildManifestRsbuild from 'rsbuild_manifest_lib'
+// @ts-ignore
+import RemoteRsbuildProvider from 'mf_rsbuild_remoteEntry'
 // @ts-ignore
 // import MFVite from 'mf_vite_components'
 // @ts-ignore
@@ -41,8 +45,12 @@ function App() {
       </p>
       <div>from rslib mf</div>
       <Provider />
-      <div>from rsbuild mf</div>
-      <MFRsbuild />
+      <div>from rslib Manifest mf</div>
+      <MFRsLibManifestRsbuild />
+      <div>from rsbuild remote entry mf</div>
+      <RemoteRsbuildProvider />
+      <div>from rsbuild manifest mf</div>
+      <MFRsbuildManifestRsbuild />
       <div>from vite mf ( can't be work) </div>
       {/* <MFVite /> */}
       <hr />

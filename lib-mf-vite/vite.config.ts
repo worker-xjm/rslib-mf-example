@@ -19,12 +19,10 @@ export default defineConfig({
       // dts: true, // 无效选项 see https://module-federation.io/zh/guide/basic/vite.html#vite-plugin
       name: 'vite_mf_components',
       manifest: true,
-      library: {
-        type: 'module',
-      },
       filename: 'remoteEntry.js',
       exposes: {
         '.': './src/App.tsx',
+        './app': './src/App.tsx',
       },
 
       shared: {
