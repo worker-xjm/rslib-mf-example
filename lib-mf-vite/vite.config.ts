@@ -17,13 +17,16 @@ export default defineConfig({
     federation({
       // dts: true, // 无效选项 see https://module-federation.io/zh/guide/basic/vite.html#vite-plugin
       name: 'vitemfc',
+      // 该选项没有任何作用,永远是 esmodule, 只能赌未来了
+      /* library: {
+        type: 'commonjs'
+      }, */
       exposes: {
         '.': './src/App.tsx',
         './app': './src/App.tsx',
       },
       filename: 'remoteEntry.js', // 必须要有,否则将导致入口文件不正常
       manifest: true,
-
       shared: {
         react: {
           singleton: true,
