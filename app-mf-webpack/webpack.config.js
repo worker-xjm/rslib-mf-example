@@ -37,11 +37,11 @@ module.exports = {
             remotes: {
                 // 这里可以添加其他微前端的远程模块
                 // lib: 'lib@http://localhost:3001/remoteEntry.js',
-                // provider: 'mf_provider@http://localhost:4000/mf_provider.js', // worked
-                // provider: 'rsbuild_mf_components@http://localhost:4070/remoteEntry.js', // worked
-                provider: 'webpack_remote_app@http://localhost:4080/remoteEntry.js', // worked
-                // provider: 'eipReactCommonAssets@http://localhost:9999/remoteEntry.js', // can't work
-                // provider: 'eipReactCommonAssets@http://sit.coreland.com.cn/common/reactCommon/remoteEntry.js', // can't work
+                // provider: 'mf_provider@http://localhost:4000/mf_provider.js', // lib-mf-rslib 已正常使用
+                // provider: 'rsbuild_mf_components@http://localhost:4070/remoteEntry.js', // lib-mf-rsbuild 已正常使用
+                // provider: 'webpack_remote_app@http://localhost:4080/remoteEntry.js', // lib-mf-webpack 已正常使用
+                // provider: 'vite_mf_components@http://localhost:4050/remoteEntry.js', // lib-mf-vite 不能正常使用
+                provider: 'eipReactCommonAssets@http://localhost:9999/remoteEntry.js', // legacy-webpack 已正常使用
             },
             shared: {
                 react: { singleton: true, eager: true, requiredVersion: pkg.dependencies['react'] },

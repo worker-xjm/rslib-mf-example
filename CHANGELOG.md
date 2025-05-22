@@ -3,3 +3,4 @@
 ## 2025年5月22日
 
 - [ ] lib-mf-webpack 经过调整,导出组件需要在前面加一个.或./, 才能正常导出模块, 现app-mf-webpack 已正常使用,待测试其他app,待完善readme.md
+- [ ] app-mf-webpack 新增了许多案例,待补充到 readme.md
