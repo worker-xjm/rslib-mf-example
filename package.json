@@ -1,12 +1,24 @@
 {
   "name": "rslib-mf-example",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "description": "模块联邦实验项目",
+  "keywords": [
+    "mf",
+    "module-federation",
+    "react",
+    "react-dom",
+    "typescript",
+    "webpack",
+    "vite",
+    "rsbuild"
+  ],
+  "author": "worker_xjm@outlook.com",
+  "license": "MIT",
   "packageManager": "pnpm@10.11.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitee.com/alibi-jia/mf-examples.git"
+  },
   "devDependencies": {
     "@eslint/js": "^9.25.0",
     "@module-federation/rsbuild-plugin": "0.13.1",
