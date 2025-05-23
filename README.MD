@@ -9,7 +9,7 @@
   pnpm create module-federation@latest
   ```
 - **app-mf-rspack**: 根据 [rspack 文档](https://rspack.dev/zh/guide/start/quick-start#%E4%BD%BF%E7%94%A8-rspack-cli) 产生，从未使用/测试
-- **app-mf-vite**: 由 `pnpm create viet` 产生基本项目，并根据[Module Federation vite plugin](https://module-federation.io/zh/guide/basic/vite.html)结合`git@github.com:gioboa/react-microfrontend-demo.git`/`git@github.com:module-federation/module-federation-examples.git` 产生
+- **app-mf-vite**: 由 `pnpm create viet` 产生基本项目，并根据[Module Federation vite plugin](https://module-federation.io/zh/guide/basic/vite.html)结合`git@github.com:gioboa/react-microfrontend-demo.git`,`git@github.com:module-federation/module-federation-examples.git` 以及 `git@github.com:module-federation/vite.git` 产生
 - **app-mf-webpack**: 由 AI 生成，可以运行，结合 [module-federation-plugin](https://webpack.docschina.org/plugins/module-federation-plugin/) 文档产生
 
 ### 库项目
