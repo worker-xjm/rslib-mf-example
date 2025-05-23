@@ -38,6 +38,13 @@ export default defineConfig({
     {
       ...shared,
       format: 'mf',
+      /* tools: {
+        rspack: (config) => {
+          config.experiments = {
+            outputModule: true,
+          }
+        }
+      }, */
       output: {
         // set unpkg cdn as assetPrefix if you want to publish
         assetPrefix: 'http://localhost:4000',
@@ -48,10 +55,13 @@ export default defineConfig({
       plugins: [
         pluginModuleFederation({
           name: 'mf_provider',
+          // name: 'mf-provider',
           exposes: {
             '.': './src/index.tsx',
           },
-
+          /* library: {
+            type: 'module',
+          }, */
           shared: {
             react: {
               singleton: true,

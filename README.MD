@@ -20,25 +20,25 @@
 
 ## ⚠️ 严重 Bug
 
-1. 由 `pnpm create module-federation@latest` 命令产生的 初始项目 依赖相互之间不匹配, 导致 命令创建的项目不能直接使用, 除非 全量 `update` 一次
-2. remote/expose 的配置 key 不能包含 `-`，否则在基于rspack的项目自动打包时会报错并无法成功构建,就算构建成功可能也无法在引用端正常使用
-3. mf vite plugin 和 基于 rspack 的插件使用体验完全不一致:主要体现在 ts , 如果按照 webpack 的写法,不会出现太大的问题
+1. 由 `pnpm create module-federation@latest` 命令产生的 `初始项目` 依赖相互不匹配, 导致 `命令` 创建的项目不能直接使用, 除非 `全量` `update` 一次
+2. remote/expose 的配置 key 不能包含 `-` ，否则在基于 rslib 的项目自动打包时会报错并无法成功构建, 就算构建成功可能也无法在引用端正常使用
+3. mf vite plugin 和 基于 rspack 的插件使用体验完全不一致: 主要体现在 ts , 如果按照 webpack 模块联邦插件的用法, 则不会出现太大的问题
 
 
 ## 本仓库预览方法
 
-要想正常启动本仓库中的案例,并预览测试,需要先启动以lib开头的预览mf服务器
+要想正常启动本仓库中的案例, 并预览测试, 需要先启动以 `lib开头` 的 `预览mf服务器`
 
-然后再启动app开头的预览服务器
+然后再启动 `app开头` 的 引用 `mf(模块联邦)`
 
 其中以下目录的应用并未支持预览,需要自行配置
 
 - app-mf-cra
 - app-mf-rspack
 
-下文介绍的运行命令, 是假定预览用户执行命令的路径为项目根目录下
+下文介绍的运行命令, 是以假定预览用户执行命令的路径为项目根目录的前提的
 
-### 启动目录以lib开头的项目
+### 启动lib开头的项目( mf 服务)
 
 
 1. lib-mf-rsbuild
@@ -50,17 +50,20 @@
   ```bash
   pnpm --filter lib-mf-rslib mf-dev
   ```
-  另外,如果想尝试修改并享受到实时的编译便利,还需要启动
+  另外,如果想尝试修改并享受到实时的编译便利, 还需要启动
   ```bash
   pnpm --filter lib-mf-rslib dev
   ```
-3. lib-mf-vite: 待解决打包和共享问题
+3. lib-mf-vite
+  ```bash
+  pnpm --filter app-mf-vite dev
+  ```
 4. lib-mf-webpack
   ```bash
   pnpm --filter lib-mf-webpack start
   ```
 
-### 启动app
+### 启动app预览 mf 效果
 
 1. app-mf-rsbuild
   ```bash
