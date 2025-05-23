@@ -55,7 +55,7 @@ export default defineConfig({
       plugins: [
         pluginModuleFederation({
           name: 'mf_provider',
-          // name: 'mf-provider',
+          // name: 'mf-provider', //see issue https://github.com/web-infra-dev/rslib/issues/1003#issuecomment-2903159554
           exposes: {
             '.': './src/index.tsx',
           },
