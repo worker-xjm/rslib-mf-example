@@ -11,7 +11,7 @@ import RemoteRsbuildProvider from 'mf_rsbuild_remoteEntry'
 // @ts-ignore
 import MFViteManifest from 'vite_mf_manifest'
 // @ts-ignore
-import MFViteRemoteEntry from 'vitemfc'
+// import MFViteRemoteEntry from 'vitemfc'
 // @ts-ignore
 import MFWebpack from 'webpack_remoteEntry'
 // @ts-ignore
@@ -33,7 +33,7 @@ function App() {
       <div>from vite manifest mf </div>
       <MFViteManifest />
       <div>from vite remote entry mf (cant't work)</div>
-      <MFViteRemoteEntry />
+      {/* <MFViteRemoteEntry /> */}
       <hr />
       <div>from webpack mf</div>
       <MFWebpack componentName="KYEmpty" />
