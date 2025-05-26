@@ -1,0 +1,224 @@
+body,
+div,
+header,
+footer,
+nav,
+section,
+aside,
+article,
+ul,
+dd,
+li,
+a,
+p,
+dl,
+dt,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+i,
+b,
+textarea,
+button,
+input,
+select,
+figure,
+figcaption {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  font-style: normal;
+  text-decoration: none;
+  border: none;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: -apple-system,BlinkMacSystemFont,Helvetica Neue,Helvetica,Arial,Segoe UI,Roboto,Ubuntu,PingFang SC,Microsoft YaHei UI,Source Han Sans CN,Microsoft Yahei,Hiragino Sans GB,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+body{
+    /*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+    ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+    /*定义滚动条轨道 内阴影+圆角*/
+    ::-webkit-scrollbar-track {
+        border-radius: 8px;
+    }
+    /*定义滑块 内阴影+圆角*/
+    ::-webkit-scrollbar-thumb {
+        border-radius: 8px;
+        background-color: #d8dce5;
+    }
+    ::-webkit-scrollbar-button {
+        width: 0;
+        height: 0;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: #9198a6;
+    }
+    ::-webkit-scrollbar-corner{
+        display: none;
+    }
+}
+
+input[type="button"],
+input[type="submit"],
+input[type="search"],
+input[type="reset"] {
+  -webkit-appearance: none;
+}
+
+textarea {
+  -webkit-appearance: none;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow: hidden;
+  padding: 0px;
+  margin: 0px;
+}
+
+
+
+
+/* 进度条颜色 */
+#nprogress .bar {
+  background: @main-primaryBase-color  !important; //自定义颜色
+}
+
+#nprogress .spinner-icon {
+  border-top-color: @main-primaryBase-color  !important;
+  border-left-color: @main-primaryBase-color  !important;
+}
+
+
+
+/*附件*/
+.smalll-default {
+  background: url(../images/default.png);
+  background-size: 100% 100%;
+}
+
+.smalll-doc {
+  background: url(../images/word.png);
+  background-size: 100% 100%;
+}
+
+.smalll-docx {
+  background: url(../images/word.png);
+  background-size: 100% 100%;
+}
+
+.smalll-xls {
+  background: url(../images/excel.png);
+  background-size: 100% 100%;
+}
+
+.smalll-xlsx {
+  background: url(../images/excel.png);
+  background-size: 100% 100%;
+}
+
+.smalll-ppt {
+  background: url(../images/ppt.png);
+  background-size: 100% 100%;
+}
+
+.smalll-pptx {
+  background: url(../images/ppt.png);
+  background-size: 100% 100%;
+}
+
+.smalll-pdf {
+  background: url(../images/pdf.png);
+  background-size: 100% 100%;
+}
+
+.smalll-zip {
+  background: url(../images/zip.png);
+  background-size: 100% 100%;
+}
+
+.smalll-txt {
+  background: url(../images/text.png);
+  background-size: 100% 100%;
+}
+
+.smalll-mind {
+  background: url(../images/xmind.png);
+  background-size: 100% 100%;
+}
+
+.smalll-mp3 {
+  background: url(../images/music.png);
+  background-size: 100% 100%;
+}
+
+.smalll-video {
+  background: url(../images/video.png);
+  background-size: 100% 100%;
+}
+
+.smalll-html {
+  background: url(../images/html.png);
+  background-size: 100% 100%;
+}
+
+.smalll-code {
+  background: url(../images/code.png);
+  background-size: 100% 100%;
+}
+
+.smalll-psd {
+  background: url(../images/ps.png);
+  background-size: 100% 100%;
+}
+
+.smalll-ai {
+  background: url(../images/ai.png);
+  background-size: 100% 100%;
+}
+
+.smalll-csv {
+  background: url(../images/csv.png);
+  background-size: 100% 100%;
+}
+
+.smalll-eps {
+  background: url(../images/eps.png);
+  background-size: 100% 100%;
+}
+
+.smalll-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: none;
+}
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+

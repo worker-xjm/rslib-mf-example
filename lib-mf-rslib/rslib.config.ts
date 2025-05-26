@@ -58,6 +58,9 @@ export default defineConfig({
           // name: 'mf-provider', //see issue https://github.com/web-infra-dev/rslib/issues/1003#issuecomment-2903159554
           exposes: {
             '.': './src/index.tsx',
+            './commonImage': './src/components/commonImage/index.tsx',
+            './commonLoading': './src/components/commonLoading/index.tsx',
+            './Empty': './src/components/Empty/index.tsx',
           },
           /* library: {
             type: 'module',
@@ -82,6 +85,10 @@ export default defineConfig({
   },
   plugins: [
     pluginReact(),
-    pluginLess()
+    pluginLess({
+      lessLoaderOptions: {
+        additionalData: `@import "@/assets/less/theme.less";`,
+      },
+    })
   ],
 });

@@ -5,6 +5,8 @@ import Provider from 'rslib_remoteEntry'
 // @ts-ignore
 import MFRsLibManifestRsbuild from 'rslib_mf_manifest'
 // @ts-ignore
+import Empty from 'rslib_mf_manifest/Empty'
+// @ts-ignore
 import MFRsbuildManifestRsbuild from 'rsbuild_mf_manifest'
 // @ts-ignore
 import RemoteRsbuildProvider from 'mf_rsbuild_remoteEntry'
@@ -37,6 +39,8 @@ function App() {
       <hr />
       <div>from webpack mf</div>
       <MFWebpack componentName="KYEmpty" />
+      <div>from rslib mf</div>
+      <Empty />
     </>
   )
 }

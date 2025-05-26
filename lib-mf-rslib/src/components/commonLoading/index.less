@@ -1,0 +1,38 @@
+.ky-loading {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: not-allowed;
+
+    .loading-inner {
+        width: 100px;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        border-radius: 8px;
+        color: @main-primaryBase-color;
+
+        &.cover-style {
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+        }
+
+        .anticon svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        span {
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    }
+}
