@@ -9,5 +9,6 @@ packages:
   - "lib-mf-rslib"
   - "lib-mf-vite"
   - "lib-mf-webpack"
+  - "lib-ui"
 
 shared-workspace-lockfile: true

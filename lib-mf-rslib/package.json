@@ -24,7 +24,8 @@
     "@types/node": "^22.13.9",
     "@types/react": "^18.3.11",
     "@types/react-color": "^3.0.13",
-    "typescript": "^5.7.3"
+    "typescript": "^5.7.3",
+    "lib-ui": "workspace:*"
   },
   "dependencies": {
     "@ant-design/icons": "^6.0.0",
