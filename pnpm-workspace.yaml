@@ -1,14 +1,14 @@
 packages:
-  # 指定根目录直接子目录中的包
-  - "app-mf-rsbuild"
-  - "app-mf-rspack"
-  - "app-mf-vite"
-  - "app-mf-webpack"
-  - "app-mf-cra"
-  - "lib-mf-rsbuild"
-  - "lib-mf-rslib"
-  - "lib-mf-vite"
-  - "lib-mf-webpack"
-  - "lib-ui"
-
+  - app-mf-rsbuild
+  - app-mf-rspack
+  - app-mf-vite
+  - app-mf-webpack
+  - app-mf-cra
+  - lib-mf-rsbuild
+  - lib-mf-rslib
+  - lib-mf-vite
+  - lib-mf-webpack
+  - lib-ui
+onlyBuiltDependencies:
+  - '@tailwindcss/oxide'
 shared-workspace-lockfile: true
