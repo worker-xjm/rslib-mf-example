@@ -20,7 +20,7 @@
 
 ## ⚠️ 严重 Bug
 
-1. 由 `pnpm create module-federation@latest` 命令产生的 `初始项目` 依赖相互不匹配, 导致 `命令` 创建的项目不能直接使用, 除非 `全量` `update` 一次
+1. ~~由 `pnpm create module-federation@latest` 命令产生的 `初始项目` 依赖相互不匹配, 导致 `命令` 创建的项目不能直接使用, 除非 `全量` `update` 一次~~ (官方已修复)
 2. mf vite plugin 和 基于 rspack 的插件使用体验完全不一致: 主要体现在 ts , 如果按照 webpack 模块联邦插件的用法, 则不会出现太大的问题
 
 
